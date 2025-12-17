@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Olá, bem vindo!</title>
+    <style>
+        @font-face {
+            font-family: 'abu';
+            src: url(fonts/abu.ttf);
+        }
+
+        body {
+            font-family: 'abu';
+        }
+    </style>
+</head>
+
+<body>
+    <hr>
+    <h1>Olá, bem vindo!</h1>
+    <hr>
+    <p>O meu nome é Santiago Page e este é o meu site. Espero que gostes!</p>
+    <p>Top 3 melhores jogos do mundo:</p>
+    <ol>
+        <li>Dark Souls</li><span><img src="images/ds1.jpg"></span>
+        <li>Hogwarts Legacy</li><span><img src="images/hogwarts.jpg" width="500"></span>
+        <li>Ghost of Tsushima</li><span><img src="images/ghost.jfif" width="500"></span>
+    </ol>
+    <a href="about">Sobre este site</a>
+    <p>By <a href="Me">Santiago Page</a></p> 
+</body>
+
+</html>

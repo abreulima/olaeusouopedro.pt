@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Sobre</title>
+     
+    </head>
+
+    <body>
+        <h2>Sobre</h2>
+        <p>Esta página foi criada como exercicio de aula</p>
+        <a href="index.html">Voltar</a>
+    <body>
+</html>
