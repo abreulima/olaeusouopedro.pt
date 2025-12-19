@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Compramos teu setup!</title>
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .menu {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+            background-color: navy;
+            color: white;
+            height: 32px;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            flex-direction: column;
+
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+         .detalhes
+         { 
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             gap: 10px;
+             margin-top: 30px;
+             width: 100%;
+             background-color:white
+                color: white;
+         }
+             
+          
+        
+
+
+
+
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="menu">
+        <span>VendeTeuSetup</span>
+        <span>Avaliar setup</span>
+        <span>Vender setup</span>
+        <span>Serviços</span>
+    </div>
+
+    <div class="content">
+        <h2>Compramos teu setup agora!</h2>
+        <p><span id="num_clientes">0</span> clientes apenas hoje!</p>
+
+        <form>
+            <label>Qual é modelo do seu processador?</label>
+            <select>
+                <option>Intel 3000 Super Power</option>
+                <option>AMD Super 67</option>
+                <option>AMD RYZEN 5 5000</option>
+            </select>
+         
+        <label>Qual é o modelo do seu monitor?</label>
+        <select>
+            <option>Uma Polegada LCD ULTRA 7K</option>
+            <option>1000 Polegadas Preto e Branco</option>
+            <option>Monitor Samsung Full HD</option>
+            <option>Monitor AOC</option>
+            </select>
+
+            
+
+            <button type="button" onclick="enviar()">Enviar</button></form>
+         
+            <p>Compramos teu setup por <span id="preço">0</span>€.</p>
+
+
+            </form>
+
+
+            
+
+
+        </form>
+
+      <div class="detalhes">
+        <div> POR FAVOR VENDA O SEU SETUP</div>
+       <img src=setup.png alt =setup width="200">
+       
+    
+        <div>
+      
+     <details>
+           <summary>Qual a melhor forma de matar uma pessoa?</summary>
+           <p>Facada nas costas ou snipada
+            <summary>Qual a melhor forma de obter droga</p>summary>
+           <p>No trafico <p></p>
+
+
+    </div>
+
+    <script>
+        let clientes = document.getElementById("num_clientes")
+
+
+        function enviar() 
+        {
+
+            let preço = document.getElementById("preço");
+            preço.textContent = Math.floor(Math.random() * 1000) + 300
+        }
+
+        setInterval(() => {
+            clientes.textContent = Number(clientes.textContent) + 1;
+        }, 1000);
+       <div>
+
+      
+
+
+
+        <div>
+
+    </script>
+
+</body>
+
+</html>
