@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Compramos o seu setup</title>
+    <style>
+        @font-face {
+            font-family: 'Candy Planet';
+            src: url(fonts/Candy\ Planet.ttf);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Candy Planet';
+        }
+
+        .menu {
+            background-color: rgb(13, 13, 78);
+            height: 40px;
+            gap: 10px;
+            display: flex;
+            align-items: center;
+            color: white;
+            justify-content: center;
+            font-size: 15px
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        .detalhes {
+
+            display: flex;
+            gap: 100px;
+            justify-content: center;
+            margin-top: 30px;
+            background-color: blue;
+            color: white;
+            align-items: center;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu">
+        <span>Compramososeusetup Vender setup Avaliar setup Serviços sobre nós Iniciar sessão</span>
+    </div>
+    <div class="content">
+        <form>
+
+
+        </form>
+        <h2>Compramos o seu setup agora!</h2>
+        <p><span id="num_clientes">0</span> clientes apenas hoje!</p>
+        <form>
+            <label>Qual é o modelo do seu processador?</label>
+            <select>
+                <option></option>
+                <option>Intel 3000 Super Power</option>
+                <option>AMD Super 67</option>
+                <option>Intel 400</option>
+                <option>Intel Core i3</option>
+                <option>Intel Core i5</option>
+                <option>Intel Core i7</option>
+            </select>
+            <label>Qual é o modelo do seu monitor?</label>
+            <select>
+                <option></option>
+                <option>Uma Polegada LCD ULTRA 7k</option>
+                <option>1000 Polegadas Preto e Branco</option>
+                <option>OLED</option>
+                <option>IPS</option>
+                <option>VA</option>
+                <option>TN</option>
+
+            </select>
+
+            <button type="button" onclick="enviar()">Calcular o preço</button>
+
+            <p>Compramos o teu setup por <span id="preco">0</span>€</p>
+        </form>
+
+        <div class="detalhes">
+            <div>Compramos o seu setup a um bom preço, e sem demora</div>
+            <img width="300px" src="images/homenzinho.avif">
+
+
+        </div>
+
+
+
+        <details>
+            <summary>Pergunta: Como calculam o meu preço de venda?</summary>
+            <p>Resposta:Primeiro, usamos as informações que inseriu no site para identificar o seu
+             setup. Depois, graças à nossa longa experiência, temos acesso a dados de mais de 100 milhões de
+             setups adquiridos, o que nos permite calcular o valor de mercado do seu setup em tempo recorde.
+             Também levamos em conta danos e sinais de uso. Além disso, para além da informação sobre o 
+             seu setup, estamos a analisar continuamente o mercado europeu de setups. Desta forma,
+              garantimos que lhe oferecemos sempre uma oferta competitiva de acordo com a situação actual do mercado.</p>
+        </details>
+        <details>
+             <summary>Pergunta: Preciso pagar alguma coisa pelo seu serviço?</summary>
+              <p>Resposta:Não, os nossos serviços são completamente gratuitos. Até nos encarregamos
+                 da alteração de registo do seu setup sem qualquer custo!</p>
+        </details>
+        <details>
+            <summary>Pergunta: Quanto tempo demora até receber o meu preço de venda?</summary>
+            <p>Resposta: Depois de preencher o questionário online, começamos imediatamente a calcular o seu preço de venda.
+          A maioria dos nossos utilizadores recebe-o em menos de uma hora. No entanto, em alguns casos excecionais, pode demorar alguns dias.</p>
+        </details>
+
+    </div>
+
+    <script>
+        let clientes = document.getElementById("num_clientes")
+
+        function enviar(){
+            let preco = document.getElementById("preco")
+            preco.textContent = Math.floor(Math.random() * 1000) + 300
+        }
+
+   
+        setInterval(() => {
+            clientes.textContent = Number(clientes.textContent) + 1;
+
+        }, 1000)
+
+
+    </script>
+
+</body>
+
+</html>
