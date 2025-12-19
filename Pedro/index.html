@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>QUERES VENDER O TEU PC E NÃO SABES ONDE?VÁ EM COMPRAMOS O SEU SETUP.PT</title>
+    <style>
+        a {
+            color: white
+        }
+
+        .detalhes {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 45px;
+            padding: 20px;
+            background-color: rgb(31, 37, 124);
+            color: white;
+            height: 100vh;
+        }
+
+        body {
+            margin: 0
+        }
+
+
+        .menu {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+            background-color: rgb(31, 37, 124);
+            color: white;
+            height: 75px;
+        }
+
+        .contet {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px
+        }
+
+
+        select {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu">
+        <span>VENDA SEU SETUP</span>
+        <span>AVALIE SEU SETUP</span>
+        <select name="cars" id="cars">
+            <option>Serviços</option>
+            <option>pc</option>
+            <option>Nos apenas </option>
+            <option>avaliamos</option>
+            <option>o seu</option>
+            <option>pc</option>
+
+        </select>
+        <select name="cars" id="cars">
+            <option>Sobre Nós</option>
+            <option> Este site</option>
+            <option>Nasceu a</option>
+            <option>a partir de</option>
+            <option>um exercico</option>
+            <option>academico</option>
+
+        </select>
+        <span><a href="LOG-IN.HTML">Livro de Críticas</a> </span>
+
+    </div>
+
+    <div class="contet">
+        <h1> Avalie o seu setup,em menos de um minuto,como já fizeram</h1>
+        <h1><span id="num_clientes">100</span></h1>
+        <h1>Clientes,hoje!</h1>
+
+        <form>
+            <label>QUAL É O PROCESSADOR?</label>
+            <select id="processador">
+                <option value="160">Intel Core i5-12400F </option>
+                <option value="660">Intel Core i9-14900K</option>
+                <option value="800">AMD Ryzen 3, 5, 7 e 9</option>
+                <option value="420">AMD Ryzen 7 7800X3D</option>
+                <option value="5000">Apple M4 Max</option>
+                <option value="1600">Snapdragon</option>
+            </select>
+        </form>
+
+        <form>
+            <label>QUAL É O MONITOR </label>
+            <select id="monitor">
+                <option value="220">Dell (Série UltraSharp)</option>
+                <option value="344">LG</option>
+                <option value="600">Samsung</option>
+                <option value="100">BenQ</option>
+                <option value="200">AOC</option>
+                <option value="200">ASUS (Série TUF Gaming/ROG Strix)</option>
+                <option value="200">MSI</option>
+                <option value="200">Dell (Série Alienware)</option>
+
+            </select>
+
+            <label>QUAL É A MEMORIA</label>
+            <select id="memoria">
+                <option value="160">G.Skill Trident Z5 Neo RGB (DDR5-6000)</option>
+                <option value="160">Corsair Vengeance DDR5</option>
+                <option value="140">Kingston Fury Beast DDR5</option>
+                <option value="160">TeamGroup T-Force Delta DDR5</option>
+                <option value="110">Kingston ValueRAM DDR5</option>
+            </select>
+
+            <button type="button" onclick="calcular()">CALCULAR</button>
+
+            <h1><span id="total">0</span></h1>
+
+        </form>
+
+        <div class="detalhes">
+            <div>ESTE SITE É TOTALMENTE FUNCIONAL E SERVE PARA CALCULAR MAIS OU MENOS O VALOR DO SEU PC ESPERO QUE
+                COMPRENDÃO NOS NÃO COMPRAMOS O SEU PC APENAS AVALIAMOS</div>
+            <div></div>
+        </div>
+
+        <script>
+            let clientes = document.getElementById("num_clientes")
+            let total = document.getElementById("total")
+
+
+
+
+
+            //var processador = document.getElementById("processador");
+            //var preco_processador = processador.options[processador.selectedIndex].value;
+
+
+            setInterval(() => {
+                clientes.textContent = Number(clientes.textContent) + 1;
+            }, 1000);
+
+            function calcular() {
+
+                var processador = document.getElementById("processador");
+                var preco_processador = processador.options[processador.selectedIndex].value;
+
+                var monitor = document.getElementById("monitor");
+                var preco_monitor = monitor.options[monitor.selectedIndex].value;
+
+                var memoria = document.getElementById("memoria");
+                var preco_memoria = memoria.options[memoria.selectedIndex].value;
+
+                total.textContent = Number(preco_processador) + Number(preco_monitor) + Number(preco_memoria)
+            }
+
+        </script>
+
+
+</body>
+
+</html>
