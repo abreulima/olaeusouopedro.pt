@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Programação Web</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            height: 8px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        .timer {
+            text-align: center;
+            font-size: 24px;
+            color: #667eea;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .question {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border-left: 5px solid #667eea;
+        }
+
+        .question h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option {
+            background: white;
+            padding: 12px;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .option:hover {
+            border-color: #667eea;
+            transform: translateX(5px);
+        }
+
+        .option input {
+            margin-right: 10px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .result {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background: #f8f9ff;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .score {
+            font-size: 48px;
+            color: #764ba2;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .emoji {
+            font-size: 60px;
+            margin: 20px 0;
+        }
+
+        .fun-facts {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .fun-facts h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .fun-facts ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .fun-facts li {
+            padding: 5px 0;
+            color: #856404;
+        }
+
+        .fun-facts li:before {
+            content: "💡 ";
+            margin-right: 5px;
+        }
+
+        .correct {
+            background: #d4edda !important;
+            border-color: #28a745 !important;
+        }
+
+        .incorrect {
+            background: #f8d7da !important;
+            border-color: #dc3545 !important;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Quiz de Programação Web 🚀</h1>
+        <p class="subtitle">Teste seus conhecimentos sobre HTML, CSS e JavaScript!</p>
+
+        <div class="timer" id="timer">⏱️ Tempo: 0:00</div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressBar"></div>
+        </div>
+
+        <form id="quizForm">
+            <div class="question">
+                <h3>1. O que significa HTML?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q1" value="a">
+                        HyperText Markup Language
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="b">
+                        Home Tool Markup Language
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="c">
+                        Hyperlinks Text Making Language
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>2. Qual tag HTML usamos para criar um título grande?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q2" value="a">
+                        &lt;title&gt;
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="b">
+                        &lt;h1&gt;
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="c">
+                        &lt;header&gt;
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>3. O CSS é usado para:</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q3" value="a">
+                        Deixar a página bonita e colorida
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="b">
+                        Criar o conteúdo da página
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="c">
+                        Fazer cálculos matemáticos
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>4. Qual propriedade CSS muda a cor do texto?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q4" value="a">
+                        background-color
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="b">
+                        color
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="c">
+                        text-style
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>5. O que o JavaScript faz em uma página web?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q5" value="a">
+                        Deixa a página interativa e dinâmica
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="b">
+                        Só muda as cores
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="c">
+                        Cria apenas textos
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>6. Como mostramos uma mensagem na tela com JavaScript?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q6" value="a">
+                        print("Olá")
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q6" value="b">
+                        alert("Olá")
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q6" value="c">
+                        show("Olá")
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>7. Qual tag HTML usamos para inserir uma imagem?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q7" value="a">
+                        &lt;img&gt;
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q7" value="b">
+                        &lt;picture&gt;
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q7" value="c">
+                        &lt;photo&gt;
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>8. O que são variáveis em JavaScript?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q8" value="a">
+                        Caixinhas que guardam informações
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q8" value="b">
+                        Cores diferentes
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q8" value="c">
+                        Tipos de tags HTML
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>9. Qual tag HTML usamos para criar um botão?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q9" value="a">
+                        &lt;click&gt;
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q9" value="b">
+                        &lt;button&gt;
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q9" value="c">
+                        &lt;btn&gt;
+                    </label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>10. O que o CSS "background-color" faz?</h3>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q10" value="a">
+                        Muda a cor de fundo
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q10" value="b">
+                        Muda o tamanho do texto
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q10" value="c">
+                        Adiciona uma borda
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn">Verificar Respostas ✨</button>
+        </form>
+
+        <div class="result" id="result">
+            <div class="emoji" id="emoji"></div>
+            <h2>Seu Resultado:</h2>
+            <div class="score" id="score"></div>
+            <p id="message"></p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number" id="correctAnswers">0</div>
+                    <div class="stat-label">✅ Corretas</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="incorrectAnswers">0</div>
+                    <div class="stat-label">❌ Erradas</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="timeSpent">0:00</div>
+                    <div class="stat-label">⏱️ Tempo</div>
+                </div>
+            </div>
+
+            <div class="fun-facts">
+                <h3>🎓 Você Sabia?</h3>
+                <ul id="funFactsList"></ul>
+            </div>
+
+            <button class="btn" onclick="location.reload()">Tentar Novamente 🔄</button>
+        </div>
+    </div>
+
+    <script>
+        const answers = {
+            q1: 'a',
+            q2: 'b',
+            q3: 'a',
+            q4: 'b',
+            q5: 'a',
+            q6: 'b',
+            q7: 'a',
+            q8: 'a',
+            q9: 'b',
+            q10: 'a'
+        };
+
+        const funFacts = [
+            "O primeiro site da internet foi criado em 1991!",
+            "CSS foi criado em 1996 para deixar as páginas mais bonitas.",
+            "JavaScript foi criado em apenas 10 dias!",
+            "Existem mais de 1,8 bilhão de sites na internet.",
+            "HTML significa 'Linguagem de Marcação de HiperTexto'.",
+            "Você pode criar jogos incríveis usando JavaScript!",
+            "CSS3 permite fazer animações sem usar JavaScript.",
+            "A primeira versão do HTML tinha apenas 18 tags."
+        ];
+
+        let startTime = Date.now();
+        let timerInterval;
+
+        // Iniciar cronômetro
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                const elapsed = Math.floor((Date.now() - startTime) / 1000);
+                const minutes = Math.floor(elapsed / 60);
+                const seconds = elapsed % 60;
+                document.getElementById('timer').textContent = 
+                    `⏱️ Tempo: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+            }, 1000);
+        }
+
+        startTimer();
+
+        // Atualizar barra de progresso
+        const form = document.getElementById('quizForm');
+        const totalQuestions = Object.keys(answers).length;
+
+        form.addEventListener('change', () => {
+            const answered = Array.from(form.querySelectorAll('input[type="radio"]:checked')).length;
+            const progress = (answered / totalQuestions) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        });
+
+        document.getElementById('quizForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            clearInterval(timerInterval);
+            
+            let score = 0;
+            const total = Object.keys(answers).length;
+            
+            // Verificar respostas e marcar
+            for (let question in answers) {
+                const selected = document.querySelector(`input[name="${question}"]:checked`);
+                const options = document.querySelectorAll(`input[name="${question}"]`);
+                
+                options.forEach(option => {
+                    const label = option.closest('.option');
+                    if (option.value === answers[question]) {
+                        label.classList.add('correct');
+                    } else if (selected && option === selected) {
+                        label.classList.add('incorrect');
+                    }
+                });
+                
+                if (selected && selected.value === answers[question]) {
+                    score++;
+                }
+            }
+            
+            const percentage = (score / total) * 100;
+            const incorrect = total - score;
+            const elapsed = Math.floor((Date.now() - startTime) / 1000);
+            const minutes = Math.floor(elapsed / 60);
+            const seconds = elapsed % 60;
+            const timeStr = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            
+            let emoji = '';
+            let message = '';
+            
+            if (percentage === 100) {
+                emoji = '🏆';
+                message = 'Perfeito! Você é um(a) expert em programação web!';
+            } else if (percentage >= 70) {
+                emoji = '🌟';
+                message = 'Muito bem! Você está indo super bem!';
+            } else if (percentage >= 50) {
+                emoji = '😊';
+                message = 'Bom trabalho! Continue praticando!';
+            } else {
+                emoji = '💪';
+                message = 'Continue estudando! Você vai conseguir!';
+            }
+            
+            // Mostrar resultado
+            document.getElementById('emoji').textContent = emoji;
+            document.getElementById('score').textContent = `${score} / ${total}`;
+            document.getElementById('message').textContent = message;
+            document.getElementById('correctAnswers').textContent = score;
+            document.getElementById('incorrectAnswers').textContent = incorrect;
+            document.getElementById('timeSpent').textContent = timeStr;
+            
+            // Adicionar fatos divertidos aleatórios
+            const factsList = document.getElementById('funFactsList');
+            const randomFacts = funFacts.sort(() => 0.5 - Math.random()).slice(0, 3);
+            randomFacts.forEach(fact => {
+                const li = document.createElement('li');
+                li.textContent = fact;
+                factsList.appendChild(li);
+            });
+            
+            document.getElementById('result').classList.add('show');
+            
+            // Scroll suave para o resultado
+            setTimeout(() => {
+                document.getElementById('result').scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'nearest' 
+                });
+            }, 100);
+        });
+    </script>
+</body>
+</html>
