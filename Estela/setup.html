@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Compramos o teu Setup de forma rápida e eficaz!</title>
+
+    <style>
+        @font-face {
+            font-family: 'Last Christmas';
+            src: url(fontes/LastChristmas.otf);
+        }
+
+        body {
+            margin: 0
+        }
+
+        .menu {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(199, 113, 0);
+            color: rgb(255, 255, 255);
+            height: 45px;
+            font-size: 22px;
+            font-family: 'Last christmas';
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
+
+        .detalhes {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 30px;
+            width: 100%;
+            background-color: rgb(199, 113, 0);
+            color: rgb(255, 255, 255);
+            font-size: 15px;
+        }
+
+        h2 {
+            font-family: 'Last Christmas';
+        }
+
+        a{
+            color: rgb(3, 3, 3);
+            font-family: 'Last Christmas'
+        }
+
+        .perguntas {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .hgf {
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+
+        .fgh {
+            font-family: 'Last Christmas';
+        }
+
+        .barra {
+            padding-right: 20px;
+            border-right: 1px solid rgb(0, 9, 136);
+        }
+    
+    </style>
+
+</head>
+
+<body>
+    <div class="menu">
+        <span class="barra"> 💻Compramos o seu Setup</span>
+        <span class="barra"> Vender Setup</span>
+        <span class="barra"> Avaliar Setup</span>
+        <span class="barra"> Serviços</span>
+        <span> 🙎🏻‍♀️ Iniciar Sessão</span>
+    </div>
+    <div class="content">
+        <h2>Compramos o seu Setup sem complicações!</h2>
+        <p><span id="num_clientes"></span> Clientes já acederam hoje!</p>
+
+        <form>
+            <label> Qual é o seu processador?</label>
+            <select>
+                <option></option>
+                <option>Intel 3000 Super Power</option>
+                <option> AMD Super 67</option>
+            </select>
+
+            <label> Quantas polegadas tem o seu monitor?</label>
+            <select>
+                <option></option>
+                <option>17 polegadas</option>
+                <option>22 polegadas</option>
+                <option>24 polegadas</option>
+                <option>32 polegadas</option>
+            </select>
+
+            <button type="button" onclick="enviar()">Enviar</button>
+        </form>
+
+        <p> O teu Setup pode ser vendido, por ti, pelo valor de <span id="preço">0</span>€ .</p>
+
+        <div class="detalhes">
+            <div><h2>Venda o seu Setup.</h2>
+                <p> Venda-o facilmente e comodamente connosco.</p>
+                <h3>1-Avaliação gratuita online:</h3>
+                <p>Avalie o seu Setup rapidamente introduzindo apenas alguns dados importantes.</p>
+                <h3>2-Descubra o preço de venda online:</h3>
+                <p>Iremos enviar o preço de venda por e-mail.</p>
+                <h3>3-Vende o seu Setup em poucos minutos:</h3>
+                <p>Escolha o dia em que pretende vender o seu Setup e pronto. Fica despachado em 30min.</p>
+            </div>
+            <img src="https://images.kabum.com.br/produtos/fotos/sync_mirakl/418693/PC-Gamer-Enifler-Completo-Intel-Core-I5-3470-16GB-RAM-Gtx-1050-TI-SSD-480GB-Windows-10-Trial-21-5pol-Kit-Gamer-Teclado-Mouse-E-Headset-Hayom_1674045500_gg.jpg" width="250">
+        </div>
+    </div>
+
+    <script>
+        let clientes = document.getElementById("num_clientes")
+        
+        function enviar()
+        {
+            let preço = document.getElementById("preço")
+            preço.textContent = Math.floor (Math.random() * 1000) + 300
+        }
+
+        setInterval(() => {
+            clientes.textContent = Number(clientes.textContent) + 1;
+        }, 1000)
+    </script>
+
+    <h3 class="fgh">Perguntas Frequentes:</h3>
+
+    <details class="perguntas">
+        <summary>Onde posso vender o meu Setup?</summary>
+        <p>Pode vender em qualquer uma das nossas lojas.</p>
+    </details>
+    
+    <details class= "perguntas">
+        <summary>Como recebo o pagamento?</summary>
+        <p>O pagamento pode ser enviado para si da maneira que preferir. Pode ser por MBay, dinheiro físico, multibanco, transferência bancária ou outra hipótese.</p>
+    </details>    
+
+    <details class="perguntas">
+        <summary>Posso usar o site para avaliar o meu Setup, sem o vender aqui? Ou tenho que pagar um valor?</summary>
+        <p>Pode usar o site para avaliar o seu Setup sem problema nenhum nem custo.</p>
+    </details>
+
+    <details class="hgf">
+        <summary> Se tiver mais perguntas onde as posso esclarecer?</summary>
+        <p> No caso de ter mais perguntas pode enviá-las para o nosso e-mail ou ligar para o nosso número de telefone.</p>
+    </details>
+    <a href="index.html">Go Back</a>
+</body>
+
+</html>
