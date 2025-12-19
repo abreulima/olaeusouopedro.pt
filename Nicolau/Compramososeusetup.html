@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Compramos o Seu SetUp</title>
+    </head>
+    <style>
+        @font-face {
+                font-family: 'Font';
+                src: url(Fonts/BROKEN-DETROIT\ -\ PERSONAL\ USE\ ONLY.TTF);
+        }
+        body{
+            font-family: 'Font';
+            margin: 0;
+            
+        }
+        .compramosagr{
+            text-align: center;
+            font-size: 50px;
+            margin-top: 50px;
+        }
+        .menu{
+            display: flex;
+            background-color: rgba(13, 113, 168);
+            font-size: 40px;
+        }
+        .Compramos{
+            color: rgba(232, 117, 36)
+        }
+        .O{
+            color: rgba(255, 255, 255);
+        }
+        .SEU{
+            color: rgba(232, 117, 36);
+        }
+        .SETUP{
+            color: rgba(255, 255, 255);
+        }
+        .PT{
+            color: rgba(232, 117, 36);
+        }
+        body{
+            color: rgba(13, 113, 168);
+            background-color: blanchedalmond;
+        }
+        
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 15px;
+        }
+        .clientes{
+            text-align: center;
+            font-size: 20px;
+        }
+        .entrar{
+            margin-left: auto;
+            margin-right: 10px;
+            margin-top: 10px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        .account_image{
+            font-size: 40px;
+        }
+        .footer{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: rgba(13, 113, 168);
+            color: white;
+        }
+        .footer_image{
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            font-size: 15px;
+        }
+        .euros{
+            text-align: center;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        .Perguntas{
+            display: flex;
+            color: rgba(13, 113, 168);
+            text-decoration: none;
+            font-size: 16px;
+            flex-direction: column;
+            text-align: center;
+        }
+    </style>
+    
+    <body>
+        <div class="menu">
+            <img src="Images/Logo.png" alt="Logo" style="height: 40px; margin-right: 10px; margin-left: 10px; margin-top: 5px;">
+            <span class="Compramos">COMPRAMOS</span>
+            <span class="O">O</span>
+            <span class="SEU">SEU</span>
+            <span class="SETUP">SETUP</span>
+            <span class="PT">".PT"</span>
+            <a class="entrar" href="SingInAccount.html"><img src="Images/account_image.png" alt="account_image" class="account_image" width="20px" class="account_image"></a>
+        </div>
+        <div class="content">
+            <h2 class="compramosagr">Compramos o Seu Setup Agora</h2>
+            <p class="clientes"> <span id="num_clientes"></span> clientes apenas hoje</span></p>
+        </div>
+        <p></p>
+        <form>
+            <label>teu processador:</label>
+            <p></p>
+            <select class="escolha">
+                <option>Selecione o processador</option>
+                <option>Intel Core i3</option>
+                <option>Intel Core i5</option>
+                <option>Intel Core i7</option>
+                <option>Intel Core i9</option>
+                <option>AMD Ryzen 3</option>
+                <option>AMD Ryzen 5</option>
+                <option>AMD Ryzen 7</option>
+                <option>AMD Ryzen 9</option>
+                <option>Outro</option>
+            </select>
+            <p></p>
+            <label>teu GPU:</label>
+            <p></p>
+            <select class="escolha">
+                <option>Selecione a tua GPU</option>
+                <option>NVIDIA GTX 1650</option>
+                <option>NVIDIA GTX 1660</option>
+                <option>NVIDIA RTX 2060</option>
+                <option>NVIDIA RTX 2070</option>
+                <option>NVIDIA RTX 2080</option>
+                <option>NVIDIA RTX 3050</option>
+                <option>NVIDIA RTX 3060</option>
+                <option>NVIDIA RTX 3070</option>
+                <option>NVIDIA RTX 3080</option>
+                <option>NVIDIA RTX 3090</option>
+                <option>NVIDIA RTX 4050</option>
+                <option>NVIDIA RTX 4060</option>
+                <option>NVIDIA RTX 4070</option>
+                <option>NVIDIA RTX 4080</option>
+                <option>NVIDIA RTX 4090</option>
+                <option>NVIDIA RTX Super</option>
+                <option>NVIDIA RTX Ti</option>
+                <option>NVIDIA RX 550</option>
+                <option>NVIDIA RX 560</option>
+                <option>AMD RX 5600 / 5700</option>
+                <option>AMD RX 6600</option>
+                <option>AMD RX 6700</option>
+                <option>AMD RX 6800</option>
+                <option>AMD RX 7600</option>
+                <option>AMD RX 7800</option>
+                <option>AMD RX 7900</option>
+                <option>AMD RX 7700</option>
+                <option>Intel Arc A380</option>
+                <option>Intel Arc A580</option>
+                <option>Intel Arc A750</option>
+                <option>Intel Arc A770</option>
+                <option>Outro</option>
+            </select>
+            <p></p>
+            <label>teu RAM:</label>
+            <p></p>
+            <select class="escolha">
+                <option>Selecione a tua RAM</option>
+                <option>8GB</option>
+                <option>16GB</option>
+                <option>32GB</option>
+                <option>64GB</option>
+                <option>128GB</option>
+                <option>Outro</option>
+            </select>
+            <p></p>
+            <label>teu armazenamento:</label>
+            <p></p>
+            <select class="escolha">
+                <option>Selecione o teu armazenamento</option>
+                <option>HDD 1TB</option>
+                <option>HDD 2TB</option>
+                <option>SSD 256GB</option>
+                <option>SSD 512GB</option>
+                <option>SSD 1TB</option>
+                <option>SSD 2TB</option>
+                <option>SSD NVMe 256GB</option>
+                <option>SSD NVMe 512GB</option>
+                <option>SSD NVMe 1TB</option>
+                <option>SSD NVMe 2TB</option>
+                <option>Outro</option>
+            </select>
+            <p></p>
+            <label>teu teclado:</label>
+            <p></p>
+            <select class="escolha">
+                <option>Selecione o teu teclado</option>
+                <option>Teclado Membrana</option>
+                <option>Teclado Mecânico</option>
+                <option>Teclado Gamer</option>
+                <option>Teclado RGB</option>
+                <option>Outro</option>
+            </select>
+            <p></p>
+            <label>teu rato:</label>
+            <p></p>
+            <select class="escolha">
+                <option>Selecione o teu rato</option>
+                <option>Rato Óptico</option>
+                <option>Rato Laser</option>
+                <option>Rato Gamer</option>
+                <option>Rato RGB</option>
+                <option>Outro</option>
+            </select>
+            <p></p>
+            <button type="submit">Enviar</button>
+        </form>
+        <p class="euros">Compramos o seu setup por <span id="preço">0</span> Euros.</p>
+        <script>
+            let clientes = document.getElementById("num_clientes");
+            setInterval(() => {
+                clientes.textContent = Number(clientes.textContent) + 1;
+                if (clientes.textContent > "999") {
+                    clientes.textContent = "1";
+                }
+            }, 500);
+            function enviar() {
+                let preço = document.getElementById("preço");
+                preço.textContent = Math.floor(Math.random() * 1000) + 100;
+            }
+        </script>
+        <a href="PerguntasFrequentes.html" class="Perguntas">Perguntas Frequentes</a>
+        <a href="Contacto.html" class="Perguntas">Formularios</a>
+
+        <div class="footer">
+            <div>
+                <ol>
+                    <li class="Lista_Titlo">Avaliação online gratuita</li>
+                        <lo class="Lista">Avalie o seu computador ou setup em poucos passos — introduza apenas as informações essenciais.</lo>
+                    <p></p>
+                    <li class="Lista_Titlo">Receba online a sua proposta</li>
+                        <lo class="Lista">Os nossos especialistas analisam o seu setup e enviam-lhe a melhor proposta por e-mail.</lo>
+                    <p></p>
+                    <li class="Lista_Titlo">Aceitamos sem perguntas</li>
+                        <lo class="Lista">Se aceitarmos a sua proposta, entraremos em contacto para combinar os detalhes da recolha e do pagamento.</lo>
+                    <li class="Lista_Titlo">Nosso contacto</li>
+                        <lo class="Lista">Email: contacto@compramososeusetup.pt | Telefone: +351 912 345 678</lo>
+                </ol>
+            </div>
+            <img class="footer_image" src="Images/SetUpGamerClean.jpg" alt="SetUp Gamer" width="500px">
+        </div>
+        
+    </body>
+</html>

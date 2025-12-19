@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Contacto</title>
+    </head>
+    <style>
+        .menu{
+            display: flex;
+            background-color: rgba(13, 113, 168);
+            font-size: 40px;
+        }
+        .Compramos{
+            color: rgba(232, 117, 36)
+        }
+        .O{
+            color: rgba(255, 255, 255);
+        }
+        .SEU{
+            color: rgba(232, 117, 36);
+        }
+        .SETUP{
+            color: rgba(255, 255, 255);
+        }
+        .PT{
+            color: rgba(232, 117, 36);
+        }
+        body{
+            color: rgba(13, 113, 168);
+            background-color: blanchedalmond;
+        }
+        @font-face {
+                font-family: 'Font';
+                src: url(Fonts/BROKEN-DETROIT\ -\ PERSONAL\ USE\ ONLY.TTF);
+        }
+        body{
+            font-family: 'Font';
+            margin: 0;
+            
+        }
+        .Centrar{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 20px;
+        }
+        .input{
+            display: flex;
+            align-items: center;
+            width: 300px;
+            height: 25px;
+            font-size: 16px;
+            margin-left: 21%;
+        }
+        .area{
+            display: flex;
+            align-items: center;
+            width: 300px;
+            font-size: 16px;
+            margin-left: 21%;
+        }
+        .contacto{
+            text-align: center;
+            font-size: 40px;
+            margin-top: 50px;
+        }
+        .butao{
+            margin-left: 45%;
+        }
+        .entrar{
+            margin-top: 20px;
+            background-color: transparent;
+            text-decoration: none;
+            color: rgba(13, 79, 120);
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+    <body>
+        <div class="menu">
+            <div class="Compramos">Compramos</div>
+            <div class="O"> O </div>
+            <div class="SEU">SEU</div>
+            <div class="SETUP"> SETUP </div>
+            <div class="PT"> PT</div>
+        </div>
+        <h1 class="contacto" class="contacto">Contacto</h1>
+        <form>
+            <label for="name" class="Centrar">Nome:</label>
+            <p></p>
+            <input type="text" id="name" name="name" required class="input">
+            <p></p>
+            <label for="email" class="Centrar">Email:</label>
+            <p></p>
+            <input type="email" id="email" name="email" required class="input">
+            <p></p>
+            <label for="message" class="Centrar">Mensagem:</label>
+            <p></p>
+            <textarea id="message" name="message" rows="4" cols="50" required class="area"></textarea>
+            <p></p>
+            <input type="submit" value="Enviar" class="butao">
+        </form>
+        <a href="Compramososeusetup.html" class="entrar">Voltar à Página Inicial</a>
+    </body>
+</html>

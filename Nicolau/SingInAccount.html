@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Entrar</title>
+    </head>
+    <style>
+        @font-face {
+                font-family: 'Font';
+                src: url(Fonts/BROKEN-DETROIT\ -\ PERSONAL\ USE\ ONLY.TTF);
+        }
+        body{
+            font-family: 'Font';
+            margin: 0;
+            color: rgba(13, 79, 120);
+            background-color: blanchedalmond;
+        }
+        .singin{
+            text-align: center;
+            font-size: 40px;
+            margin-top: 50px;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 20px;
+        }
+        .entrar{
+            margin-top: 20px;
+            background-color: transparent;
+            text-decoration: none;
+            color: rgba(13, 79, 120);
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        .menu{
+            display: flex;
+            background-color: rgba(13, 113, 168);
+            font-size: 40px;
+        }
+        .Compramos{
+            color: rgba(232, 117, 36)
+        }
+        .O{
+            color: rgba(255, 255, 255);
+        }
+        .SEU{
+            color: rgba(232, 117, 36);
+        }
+        .SETUP{
+            color: rgba(255, 255, 255);
+        }
+        .PT{
+            color: rgba(232, 117, 36);
+        }
+        .entrar{
+            margin-top: 20px;
+            background-color: transparent;
+            text-decoration: none;
+            color: rgba(13, 79, 120);
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+    <body>
+        <div class="menu">
+            <img src="Images/Logo.png" alt="Logo" style="height: 40px; margin-right: 10px; margin-left: 10px; margin-top: 5px;">
+            <span class="Compramos">COMPRAMOS</span>
+            <span class="O">O</span>
+            <span class="SEU">SEU</span>
+            <span class="SETUP">SETUP</span>
+            <span class="PT">".PT"</span>
+        </div>
+        <h2 class="singin">Entrar</h2>
+        <form>
+            <label for="username">Nome de Usuário:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Entrar</button>
+        </form>
+        <a href="CreateAccount.html" class="entrar">Criar Conta</a>
+        <a href="Compramososeusetup.html" class="entrar">Voltar à Página Inicial</a>
+    </body>
+</html>
